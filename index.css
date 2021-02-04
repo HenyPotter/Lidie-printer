@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+body{
+    font-family: Open Sans, sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+    background-color: #808080;
+    color:#efefef;
+
+}
+#stav{
+    top:10000px;
+  
+}
+#main{
+   
+    top:200px !important;
+    position: absolute;
+}
+
+
+#state{
+    color:#FAD600;
+}
+
+#job\.file\.name{
+    color:#FAD600;
+}
+
+#svg{
+	width: 300px;
+	margin-top: 100px;;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+nav{
+	background-color: #383838;
+	padding: 20px;
+	direction: rtl;
+	border-bottom: 4px solid #FAD600;
+}
+nav a{
+	color: #FAD600;
+	padding: 21px;
+	margin-right: -3px;
+	text-decoration: none;
+	font-family: tahoma;
+	font-size: 17px;
+	transition: all .30s linear;
+}
+nav a:hover{
+	background-color: #FAD600;
+	color: #000000;
+}
+

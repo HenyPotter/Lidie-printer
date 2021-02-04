@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <nav>
+        <a href="index.html">Domů</a>
+        <a href="temperature.html">Teplota</a>
+   
+    </nav>
+
+<link rel="stylesheet" href="index.css">
+    <script>
+
+        
+        var HttpClient = function() {
+            this.get = function(aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function() {
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                }
+                anHttpRequest.open("GET", aUrl, true);
+                anHttpRequest.send(null);
+            }
+        }
+        var theurl = 'http://octopi.local/api/job?apikey=6585C0D80FC74F6B9C8F3AB0E05A5CD4';
+        var client = new HttpClient();
+        client.get(theurl, function(response) {
+            var response1 = JSON.parse(response);
+            // alert(response);
+            document.getElementById("state").innerHTML = response1.state;
+            document.getElementById("job.file.name").innerHTML = response1.job.file.name;
+            document.getElementById("online").innerHTML = response1.online;
+            document.getElementById("version").innerHTML = response1.version;
+            document.getElementById("players.list").innerHTML = response1.players.list;
+            document.getElementById("players.online").innerHTML = response1.players.online;
+            document.getElementById("icon").innerHTML = response1.icon;
+            
+
+        });
+        
+    </script>
+<script src="index.js"></script>
+</head>
+<body>
+
+
+    <!--API DATS-->
+<img  id="svg" src="https://www.flaticon.com/svg/static/icons/svg/1377/1377916.svg">
+
+<div id="stav"><span id="stavtext">STAV</span> - <span id="state"></span></div>
+<div id="stav"><span id="stavtext">Právě tisknu</span> - <span id="job.file.name"></span></div>
+
+      
+
+
+        <!--PRINTER-->
+ 
+ 
+ 
+ 
+</body>
+</html>

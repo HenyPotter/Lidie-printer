@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <nav>
+        <a href="index.html">Domů</a>
+        <a href="temperature.html">Teplota</a>
+   
+    </nav>
+
+<link rel="stylesheet" href="temperature.css">
+<script>
+
+        
+    var HttpClient = function() {
+        this.get = function(aUrl, aCallback) {
+            var anHttpRequest = new XMLHttpRequest();
+            anHttpRequest.onreadystatechange = function() {
+                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                    aCallback(anHttpRequest.responseText);
+            }
+            anHttpRequest.open("GET", aUrl, true);
+            anHttpRequest.send(null);
+        }
+    }
+    var theurl = 'http://octopi.local/api/printer?apikey=6585C0D80FC74F6B9C8F3AB0E05A5CD4';
+    var client = new HttpClient();
+    client.get(theurl, function(response) {
+        var response1 = JSON.parse(response);
+        // alert(response);
+       document.getElementById("temperature.tool0.actual").innerHTML = response1.temperature.tool0.actual;
+        document.getElementById("temperature.bed.actual").innerHTML = response1.temperature.bed.actual;
+        
+    
+
+    });
+    
+</script>
+
+</head>
+<body>
+
+  
+      
+
+
+<div id="card1">
+    <img src="iconfinder_Extruder_SVG_981319 (2).png" style="width: 50%;"><br>
+    <span id="temperature.tool0.actual"></span>
+
+</div>
+ 
+<div id="card2">
+    <img src="iconfinder_Heated_Bed_Plate_SVG_981316.png" style="width: 50%;">
+    <span id="temperature.bed.actual"></span>
+
+</div>
+ 
+ 
+</body>
+</html>
